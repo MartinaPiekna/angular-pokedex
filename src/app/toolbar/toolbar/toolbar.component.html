@@ -1,0 +1,39 @@
+<nav>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row class="flex items-center">
+      <span>Pokedex</span>
+      <button
+        mat-icon-button
+        aria-label="Example icon button with a home icon"
+        class="flex ml-2"
+      >
+        <mat-icon>home</mat-icon>
+      </button>
+      <span class="example-spacer"></span>
+      <button
+        mat-icon-button
+        class="ml-auto flex items-center"
+        aria-label="Example icon-button with menu icon"
+        [matMenuTriggerFor]="menu"
+      >
+        <mat-icon>menu</mat-icon>
+        <mat-menu #menu="matMenu">
+          <button
+            mat-menu-item
+            [routerLink]="['/one']"
+            routerLinkActive="router-link-active"
+          >
+            Route 1
+          </button>
+          <button
+            mat-menu-item
+            [routerLink]="['/two']"
+            routerLinkActive="router-link-active"
+          >
+            Route 2
+          </button>
+        </mat-menu>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</nav>

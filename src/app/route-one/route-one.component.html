@@ -1,1 +1,18 @@
-<p>route-one works!</p>
+<button mat-raised-button color="primary" (click)="changeLimit(5)">
+  change limit to 5
+</button>
+<button mat-raised-button color="primary" (click)="changeLimit(50)">
+  change limit to 50
+</button>
+<br />
+<span *ngIf="limit$ | async as limit"
+  ><b>{{ limit }}</b></span
+>
+<ng-container *ngIf="pokeList$ | async as pokeList">
+  <ul *ngFor="let item of pokeList.results">
+    {{
+      item.name
+    }}
+  </ul>
+  <pre>{{ pokeList | json }}</pre>
+</ng-container>
