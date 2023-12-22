@@ -1,0 +1,7 @@
+<nav>
+  <button mat-button color="primary" [routerLink]="['/one']" routerLinkActive="accent">route one</button>
+  <button mat-button color="primary" [routerLink]="['/two']" routerLinkActive="accent"></button>
+  <button class="bg-red-300" [routerLink]="['/one']" routerLinkActive="bg-red-500">route one</button>
+  <button class="bg-red-300" [routerLink]="['/two']" routerLinkActive="bg-red-500">route two</button>
+</nav>
+<router-outlet></router-outlet>
