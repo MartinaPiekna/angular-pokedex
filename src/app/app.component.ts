@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { ToolbarComponent } from './toolbar/toolbar/toolbar.component';
+import { CardComponent } from './card/card.component';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { ToolbarComponent } from './toolbar/toolbar/toolbar.component';
     RouterModule,
     MatButtonModule,
     ToolbarComponent,
+    CardComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

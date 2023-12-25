@@ -1,0 +1,14 @@
+<ng-container *ngIf="pokemon$ | async as pokemon">
+  <mat-card class="example-card !bg-white w-56 hover:!shadow-md">
+    <mat-card-header class="!bg-emerald-400">
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{ name }}</mat-card-title>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="{{ pokemon?.sprites?.other?.dream_world?.front_default }}"
+      alt="{{ name }}"
+      class="h-56 p-2"
+    />
+  </mat-card>
+</ng-container>
