@@ -1,0 +1,21 @@
+<!-- 
+  ngIf atribute is using observable variable with declared pipe operator, AsyncPipe unwraps a value from an asynchronous primitive. Basically it connects us to the data stream and get a new changed value "limit" from the data stream. The conditional statement stores the result of limit$|async in the local variable limit (it's similar to if/else statement)
+-->
+
+@if(pokeList$ | async; as pokeList) {
+<!-- 
+    ngFor prints out data to the screen under the form of a data table, by generating HTML, with this atribute we can loop throughout pokeList fetched from our data stream  -->
+<ul class="flex gap-x-6 gap-y-6 flex-wrap">
+  <li *ngFor="let item of pokeList.results" class="w-56">
+    <card [name]="item?.name" [url]="item?.url"></card>
+  </li>
+</ul>
+<mat-paginator
+  [length]="pokeList.count"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="handlePage($event)"
+  aria-label="Select page"
+  class="paginator !text-white !font-bold"
+>
+</mat-paginator>

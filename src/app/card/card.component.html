@@ -1,14 +1,17 @@
-<ng-container *ngIf="pokemon$ | async as pokemon">
-  <mat-card class="example-card !bg-white w-56 hover:!shadow-md">
-    <mat-card-header class="!bg-emerald-400">
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>{{ name }}</mat-card-title>
-    </mat-card-header>
-    <img
-      mat-card-image
-      src="{{ pokemon?.sprites?.other?.dream_world?.front_default }}"
-      alt="{{ name }}"
-      class="h-56 p-2"
-    />
-  </mat-card>
-</ng-container>
+@if(pokemon$ | async; as pokemon) {
+<mat-card class="example-card !bg-white w-56 hover:!shadow-md">
+  <mat-card-header class="!bg-emerald-400">
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ name }}</mat-card-title>
+  </mat-card-header>
+  <!-- 
+    Displaying values with interpolation and using Angular Json Pipe which converts a value or object into JSON formatted string, otherwise we get just object Object
+-->
+  <img
+    mat-card-image
+    src="{{ pokemon?.sprites?.other?.dream_world?.front_default }}"
+    alt="{{ name }}"
+    class="h-56 p-2"
+  />
+</mat-card>
+}
