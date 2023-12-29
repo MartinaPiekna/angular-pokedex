@@ -1,3 +1,10 @@
+export interface Pokedex {
+  count: number;
+  next: string;
+  previous: string;
+  results: Array<PokedexItem>;
+}
+
 export interface PokedexItem {
   name: string;
   url: string;

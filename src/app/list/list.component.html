@@ -2,16 +2,33 @@
   ngIf atribute is using observable variable with declared pipe operator, AsyncPipe unwraps a value from an asynchronous primitive. Basically it connects us to the data stream and get a new changed value "limit" from the data stream. The conditional statement stores the result of limit$|async in the local variable limit (it's similar to if/else statement)
 -->
 
-@if(pokeList$ | async; as pokeList) {
+@if(pokeList$ | async; as pokeList) { @if(filteredPokeList$ | async; as
+filteredPokeList) {
 <!-- 
     ngFor prints out data to the screen under the form of a data table, by generating HTML, with this atribute we can loop throughout pokeList fetched from our data stream  -->
+<mat-form-field class="form-field">
+  <mat-label>Type a Pokemon name</mat-label>
+  <input #input matInput (input)="filterItems($event)" />
+  @if (searchedPokemon$ | async;) {
+  <button
+    mat-button
+    *ngIf="filteredPokeList.length !== pokeList.results.length"
+    matSuffix
+    mat-icon-button
+    (click)="clearInput()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  }
+</mat-form-field>
+
 <ul class="flex gap-x-6 gap-y-6 flex-wrap">
-  <li *ngFor="let item of pokeList.results" class="w-56">
-    <card [name]="item?.name" [url]="item?.url"></card>
+  <li *ngFor="let item of filteredPokeList" class="w-56">
+    <card [name]="item.name" [url]="item.url"></card>
   </li>
 </ul>
 <mat-paginator
-  [length]="pokeList.count"
+  [length]="filteredPokeList.length"
   [pageSize]="pageSize"
   [pageSizeOptions]="pageSizeOptions"
   (page)="handlePage($event)"
@@ -19,4 +36,4 @@
   class="paginator !text-white !font-bold"
 >
 </mat-paginator>
-}
+} }
