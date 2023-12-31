@@ -1,7 +1,9 @@
-.paginator,
-.mdc-text-field {
-  background-color: #c2185b !important;
+body {
+  position: relative;
 }
-.mat-form-field {
-  width: 300px;
+.paginator {
+  background-color: #c2185b !important;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
 }

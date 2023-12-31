@@ -6,9 +6,7 @@
         mat-icon-button
         aria-label="Example icon button with a home icon"
         class="flex ml-2"
-      >
-        <mat-icon>home</mat-icon>
-      </button>
+      ></button>
       <span class="example-spacer"></span>
       <button
         mat-icon-button
@@ -20,17 +18,17 @@
         <mat-menu #menu="matMenu">
           <button
             mat-menu-item
-            [routerLink]="['/one']"
+            [routerLink]="['']"
             routerLinkActive="router-link-active"
           >
-            Route 1
+            Home
           </button>
           <button
             mat-menu-item
-            [routerLink]="['/two']"
+            [routerLink]="['/detail']"
             routerLinkActive="router-link-active"
           >
-            Route 2
+            Detail
           </button>
         </mat-menu>
       </button>

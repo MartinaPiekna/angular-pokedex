@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { Observable } from 'rxjs';
 import { Pokemon } from '../api-pokedex/api-pokedex.model';
 import { ApiPokedexService } from '../api-pokedex/api-pokedex.service';
+import { Router } from '@angular/router';
 
 /**
  * @title Card with multiple sections
@@ -17,7 +18,10 @@ import { ApiPokedexService } from '../api-pokedex/api-pokedex.service';
   imports: [MatCardModule, MatButtonModule, CommonModule],
 })
 export class CardComponent {
-  constructor(private apiPokedexService: ApiPokedexService) {}
+  constructor(
+    private apiPokedexService: ApiPokedexService,
+    private router: Router
+  ) {}
 
   // the exclamation mark means we surely know we use this variable somewhere
   // @Input is a binding method which helps to use specific variables from child to parent comp.
@@ -40,4 +44,9 @@ export class CardComponent {
   }
 
   pokemon$!: Observable<Pokemon>;
+
+  navigate(id: number) {
+    //this.router.navigate(['/detail']);
+    this.router.navigateByUrl(`/detail/${id}`);
+  }
 }

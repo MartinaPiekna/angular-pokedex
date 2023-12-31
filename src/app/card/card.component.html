@@ -1,5 +1,8 @@
 @if(pokemon$ | async; as pokemon) {
-<mat-card class="example-card !bg-white w-56 hover:!shadow-md">
+<mat-card
+  class="example-card !bg-white w-56 hover:!shadow-md cursor-pointer"
+  (click)="navigate(pokemon.id)"
+>
   <mat-card-header class="!bg-emerald-400">
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{ name }}</mat-card-title>
